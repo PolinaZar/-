@@ -5,11 +5,9 @@ html = """Введите значения в интервале от 0 до 1 в
 <form method="get">Вы предпочитаете телефон компании Samsung?<input name="Answer1"></input><br>
 <form method="get">Вы предпочитаете телефон компании Apple?<input name="Answer2"></input><br>
 <form method="get">Вы предпочитаете телефон компании Lenovo?<input name="Answer3"></input><br>
-<form method="get">Укажите минимальный бюджет.<input name="Answer4"></input><br>
-<form method="get">Укажите максималный бюджет.<input name="Answer5"></input><br>
-<form method="get">Вам необходима модель последнего поколения?<input name="Answer6"></input><br>
-<form method="get">Вы предпочитаете операционную систему Android?<input name="Answer7"></input><br>
-<form method="get">Вы предпочитаете операционную систему iOS?<input name="Answer8"></input><br>
+<form method="get">Вам необходима модель последнего поколения?<input name="Answer4"></input><br>
+<form method="get">Вы предпочитаете операционную систему Android?<input name="Answer5"></input><br>
+<form method="get">Вы предпочитаете операционную систему iOS?<input name="Answer6"></input><br>
 <button>OK</button></form>"""
 def wsgi_app(environ, start_response): 
     response_headers = [('Content-type', 'text/html; charset=UTF-8')]
@@ -26,17 +24,13 @@ def wsgi_app(environ, start_response):
     Answer4 = d.get('Answer4',[None])[0]
     Answer5 = d.get('Answer5',[None])[0]
     Answer6 = d.get('Answer6',[None])[0]
-    Answer7 = d.get('Answer7',[None])[0]
-    Answer8 = d.get('Answer8',[None])[0]
     x.append(Answer1)
     x.append(Answer2)
     x.append(Answer3)
     x.append(Answer4)
     x.append(Answer5)
     x.append(Answer6)
-    x.append(Answer7)
-    x.append(Answer8)
-    if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6 and Answer7 and Answer8:
+    if Answer1 and Answer2 and Answer3 and Answer4 and Answer5 and Answer6:
         try:
             for i in range(0,len(x)-1):
                 x[i]=float(x[i])
