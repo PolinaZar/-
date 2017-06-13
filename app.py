@@ -1,6 +1,6 @@
 from cgi import parse_qs
-from exp_syst_calc import *
-from exp_syst_dict import *
+#from exp_syst_calc import *
+#from exp_syst_dict import *
 html = """Введите значения в интервале от 0 до 1 в формате '0.1'.<br>
 <form method="get">Вы предпочитаете телефон компании Samsung?<input name="Answer1"></input><br>
 <form method="get">Вы предпочитаете телефон компании Apple?<input name="Answer2"></input><br>
@@ -34,8 +34,8 @@ def wsgi_app(environ, start_response):
         try:
             for i in range(0,len(x)-1):
                 x[i]=float(x[i])
-            y=calc(x)
-            response_body="Samsung Galaxy A3: "+str(y[0])+"<br>"+"Samsung Galaxy A5: "+str(y[1])+"<br>"+"Samsung Galaxy S7: "+str(y[2])+"<br>"+"Samsung Galaxy S8: "+str(y[3])+"<br>"+"iPhone6S: "+str(y[4])+"<br>"+"iPhone7: "+str(y[5])+"<br>"+"Lenovo Vibe K5 Note: "+str(y[6])+"<br>"+"Lenovo K6 Note: "+str(y[7])+"<br>"+"Lenovo Moto X Style: "+str(y[8])+"<br>"+"Lenovo Mote Z: "+str(y[9])+"<br>"
+            #y=calc(x)
+            response_body=x
             start_response(status, response_headers)
             yield response_body.encode()
         except:
